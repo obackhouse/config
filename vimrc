@@ -103,6 +103,9 @@ set wildmenu
 set wildmode=list:longest
 
 " Make w and q commands case-insensitive
+:command WQA wqa
+:command WQa wqa
+:command Wqa wqa
 :command WQ wq
 :command Wq wq
 :command W w
@@ -110,4 +113,4 @@ set wildmode=list:longest
 
 " Set autocorrect for my common types:
 iab anf and
-
+iab improt import
