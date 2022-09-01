@@ -8,6 +8,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'lervag/vimtex'
+Plugin 'JuliaEditorSupport/julia-vim'
+Plugin 'ervandew/supertab'
+Plugin 'funorpain/vim-cpplint'
+Plugin 'cespare/vim-toml'
 call vundle#end()
 
 " Set the colorscheme to desert, seems the nicest
@@ -40,6 +44,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
+set cindent
 
 " Always have 10 lines below the cursor
 set scrolloff=10
@@ -101,6 +106,10 @@ set viminfo='10,\"1000,:20,%,n~/.viminfo
 " Turn on command menu
 set wildmenu
 set wildmode=list:longest
+
+" Enable unicode keymapping for all filetypes
+"let g:latex_to_unicode_keymap = 1
+let g:latex_to_unicode_file_types = ".*"
 
 " Make w and q commands case-insensitive
 :command WQA wqa
