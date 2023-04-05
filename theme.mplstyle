@@ -1,0 +1,46 @@
+# Custom matplotlibrc for consistent style in plots
+# Adapted from the seaborn-talk style sheet.
+
+# Lines:
+lines.linewidth:        2.275
+lines.markersize:       9.1
+lines.markeredgewidth:  1.0
+lines.markeredgecolor:  black
+
+# Patches
+patch.linewidth:        0.39
+
+# Font
+font.family:            sans-serif
+font.weight:            medium
+
+# LaTeX
+pgf.texsystem:          pdflatex
+
+# Axes
+axes.facecolor:         whitesmoke
+axes.labelsize:         14.3
+axes.titlesize:         15.6
+axes.prop_cycle:        cycler('color', ['1f77b4', 'ff7f0e', '2ca02c', 'd62728', '9467bd', '8c564b', 'e377c2', '7f7f7f', 'bcbd22', '17becf'])
+axes.unicode_minus:     False
+
+# Ticks
+xtick.labelsize:        13
+xtick.minor.width:      0.65
+xtick.major.width:      1.3
+xtick.major.pad:        9.1
+ytick.labelsize:        13
+ytick.minor.width:      0.65
+ytick.major.width:      1.3
+ytick.major.pad:        9.1
+
+# Grids
+grid.linewidth:         1.3
+
+# Legend
+legend.fontsize:        13
+
+# Figure
+figure.figsize:         8.0, 6.0
+figure.facecolor:       white
+figure.autolayout:      True
