@@ -6,16 +6,41 @@ set nocompatible
 " Load in vundle for some plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'lervag/vimtex'
-Plugin 'JuliaEditorSupport/julia-vim'
-Plugin 'ervandew/supertab'
-Plugin 'funorpain/vim-cpplint'
-Plugin 'cespare/vim-toml'
+Plugin 'VundleVim/Vundle.vim'           " Plugin manager
+Plugin 'lervag/vimtex'                  " LaTeX editor
+Plugin 'JuliaEditorSupport/julia-vim'   " Julia editor
+Plugin 'ervandew/supertab'              " Tab improvements
+Plugin 'funorpain/vim-cpplint'          " C++ linter
+Plugin 'cespare/vim-toml'               " TOML editor
+Plugin 'dpelle/vim-LanguageTool'        " Grammar checker
+Plugin 'embear/vim-localvimrc'          " Look for .lvimrc first
+Plugin 'vim-python/python-syntax'       " Python syntax
+Plugin 'NLKNguyen/c-syntax.vim'         " C syntax
+Plugin 'NLKNguyen/papercolor-theme'     " PaperColor theme
+if exists('copilot')
+    Plugin 'github/copilot.vim'         " Copilot
+endif
 call vundle#end()
 
-" Set the colorscheme to desert, seems the nicest
-colorscheme desert
+" Set the colorscheme
+set t_Co=256
+set background=dark
+colorscheme PaperColor
+"hi Normal ctermbg=black
+let g:python_highlight_all = 1
+let g:PaperColor_Theme_Options = {
+  \   'language': {
+  \     'python': {
+  \       'highlight_builtins' : 1
+  \     },
+  \     'cpp': {
+  \       'highlight_standard_library': 1
+  \     },
+  \     'c': {
+  \       'highlight_builtins' : 1
+  \     }
+  \   }
+  \ }
 
 " Turn on syntax highlighting
 filetype off
@@ -107,6 +132,9 @@ set viminfo='10,\"1000,:20,%,n~/.viminfo
 set wildmenu
 set wildmode=list:longest
 
+" Make sure backspace has desired behaviour
+set backspace=indent,eol,start
+
 " Enable unicode keymapping for all filetypes
 "let g:latex_to_unicode_keymap = 1
 let g:latex_to_unicode_file_types = ".*"
@@ -123,3 +151,15 @@ let g:latex_to_unicode_file_types = ".*"
 " Set autocorrect for my common types:
 iab anf and
 iab improt import
+
+" Copilot options
+imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+let g:copilot_node_command = "~/git/node/bin/node"
+
+" Help with tmux getting the correct colours
+"if exists("+termguicolors")
+"    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"    set termguicolors
+"endif
