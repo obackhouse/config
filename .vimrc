@@ -1,5 +1,3 @@
-" A bunch of vim config options I have collected
-
 " Set the nocompatible options just in case
 set nocompatible 
 
