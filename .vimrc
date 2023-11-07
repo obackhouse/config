@@ -15,6 +15,9 @@ Plugin 'embear/vim-localvimrc'          " Look for .lvimrc first
 Plugin 'vim-python/python-syntax'       " Python syntax
 Plugin 'NLKNguyen/c-syntax.vim'         " C syntax
 Plugin 'NLKNguyen/papercolor-theme'     " PaperColor theme
+Plugin 'nvie/vim-flake8'                " Flake8 formatter
+Plugin 'ambv/black'                     " Black formatter
+Plugin 'vim-airline/vim-airline'        " Airline
 if exists('copilot')
     Plugin 'github/copilot.vim'         " Copilot
 endif
@@ -25,17 +28,17 @@ set t_Co=256
 set background=dark
 colorscheme PaperColor
 "hi Normal ctermbg=black
-let g:python_highlight_all = 1
 let g:PaperColor_Theme_Options = {
   \   'language': {
   \     'python': {
-  \       'highlight_builtins' : 1
+  \       'highlight_all': 1,
+  \       'highlight_builtins': 1
   \     },
   \     'cpp': {
   \       'highlight_standard_library': 1
   \     },
   \     'c': {
-  \       'highlight_builtins' : 1
+  \       'highlight_builtins': 1
   \     }
   \   }
   \ }
@@ -44,6 +47,8 @@ let g:PaperColor_Theme_Options = {
 filetype off
 filetype plugin indent on
 syntax on
+let g:python_highlight_all = 1
+hi pythonBuiltinFunc ctermfg=37 cterm=bold
 
 " Turn on highlight searching, and remove highlights using ctrl+c
 set hlsearch
@@ -60,6 +65,10 @@ set number
 
 " Prevent wrapping of lines
 set nowrap
+
+" Turn wrapping back on for .md and .tex files
+au BufRead,BufNewFile *.md set wrap
+au BufRead,BufNewFile *.tex set wrap
 
 " The only correct tab options
 set tabstop=4
@@ -89,9 +98,11 @@ set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
 set noerrorbells
 set visualbell t_vb=
 
-" Turn spellcheck on for .tex files (set to British English)
+" Turn spellcheck on for .tex and .md files (set to British English)
 au BufRead,BufNewFile *.tex set spell spelllang=en_gb
+au BufRead,BufNewFile *.md set spell spelllang=en_gb
 au BufRead,BufNewFile *.tex set wrap
+au BufRead,BufNewFile *.md set wrap
 
 " Fix the syntax highlighting for .jl (julia) files
 au BufRead,BufNewFile *.jl :set filetype=julia
@@ -153,7 +164,7 @@ iab improt import
 " Copilot options
 imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
-let g:copilot_node_command = "~/git/node/bin/node"
+let g:copilot_node_command = "/usr/local/bin/node"
 
 " Help with tmux getting the correct colours
 "if exists("+termguicolors")
