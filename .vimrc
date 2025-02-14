@@ -26,7 +26,7 @@ if has('nvim')
 endif
 if exists('copilot')
     Plugin 'zbirenbaum/copilot.lua'     " Copilot
-    Plugin 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }  " Copilot chat
+    Plugin 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'main' }  " Copilot chat
 endif
 call vundle#end()
 
@@ -173,6 +173,8 @@ let g:latex_to_unicode_file_types = ".*"
 :command Wqa wqa
 :command WQ wq
 :command Wq wq
+:command WA wa
+:command Wa wa
 :command W w
 :command Q q
 
