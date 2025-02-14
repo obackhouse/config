@@ -112,6 +112,17 @@ set showcmd
 " Make line status look better
 set laststatus=2
 set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
+let g:airline_powerline_fonts = 1
+let g:airline_symbols = {
+    \ 'branch': '',
+    \ 'readonly': '⭤',
+    \ 'linenr': '⭡',
+    \ 'paste': '⭦',
+    \ 'mode': '⭣',
+    \ 'maxlinenr': '⭢',
+    \ 'filetype': '⭤',
+    \ 'fileformat': '⭥',
+    \ }
 
 " Stop all the whining
 set noerrorbells

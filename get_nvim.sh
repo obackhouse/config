@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo apt install powerline
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 mkdir -p $HOME/git
 tar -C $HOME/git -xzf nvim-linux64.tar.gz
