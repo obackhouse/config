@@ -122,6 +122,7 @@ let g:airline_symbols = {
     \ 'maxlinenr': '⭢',
     \ 'filetype': '⭤',
     \ 'fileformat': '⭥',
+    \ 'dirty': '󱐋',
     \ }
 
 " Stop all the whining
